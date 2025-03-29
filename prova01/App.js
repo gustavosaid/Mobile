@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import AppNavigator from './components/AppNavigator';
-import LoginScreen from './components/LoginScreen';
+import AppNavigator from './componentes/components/AppNavigator';
+import LoginScreen from './componentes/components/LoginScreen';
 
 
 

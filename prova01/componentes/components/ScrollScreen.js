@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import FlatListScreen from './scroll/FlatListScreen';
 import FormScreen from './scroll/FormScreen';
 import SectionListScreen from './scroll/SectionListScreen';
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {

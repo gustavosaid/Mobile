@@ -1,6 +1,8 @@
 import React from "react";
 import { ScrollView, Text, StyleSheet, View } from "react-native";
+
 export default function FlatListScreen() {
+    
     return (
         <ScrollView contentContainerStyle={styles.container}>
             {Array.from({ length: 20 }).map((_, index) => (

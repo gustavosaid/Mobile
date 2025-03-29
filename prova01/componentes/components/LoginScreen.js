@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Text } from 'react-native';
+
 const LoginScreen = ({ setIsAuthenticated }) => {
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    
     const handleLogin = () => {
         if (username === 'user' && password === 'pass') {
             setIsAuthenticated(true);

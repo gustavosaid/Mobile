@@ -4,11 +4,13 @@ import { ScrollView,KeyboardAvoidingView,TextInput,Text,StyleSheet,View,Button,}
 const FormScreen = () => {
     // Inicializa um array com 10 entradas vazias.
     const [inputs, setInputs] = useState(Array(10).fill(""));
+
     const handleInputChange = (text, index) => {
         const updatedInputs = [...inputs];
         updatedInputs[index] = text;
         setInputs(updatedInputs);
     };
+
     return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -18,8 +20,9 @@ const FormScreen = () => {
                         key={index}
                         style={styles.input}
                         placeholder={`Campo ${index + 1}`}
-                        value={inputs[index]} // Valor correspondente ao índice
-                        // Atualiza o valor do índice específico
+                        value={inputs[index]} 
+                        
+                        
                         onChangeText={(text) => handleInputChange(text, index)}
                     />
                 ))}
