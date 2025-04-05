@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
+import * as Location from 'expo-location';
 
 const ProfileScreen = ({ setIsAuthenticated }) => {
+  
   return (
     <View style={styles.container}>
       <Text>Bem-vindo ao Perfil!</Text>
