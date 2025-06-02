@@ -5,7 +5,7 @@ import globalStyles from '../styles/globalStyles';
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.title}>Bem Vindo 💜 ! </Text>
+      <Text style={globalStyles.title}>Bem Vindo ao App 💜 ! </Text>
       <TouchableOpacity
         style={globalStyles.button}
         onPress={() => navigation.navigate('Login')}

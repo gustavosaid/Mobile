@@ -35,7 +35,7 @@ export default function UserDetailsScreen({ route }) {
   <Text style={globalStyles.detailLabel}>Nome</Text>
   <Text style={globalStyles.detailValue}>{user.nome}</Text>
 
-  <Text style={globalStyles.detailLabel}>Email</Text>
+  <Text style={globalStyles.detailLabel}>E-mail</Text>
   <Text style={globalStyles.detailValue}>{user.email}</Text>
 
   <Text style={globalStyles.detailLabel}>Curso</Text>
@@ -43,12 +43,16 @@ export default function UserDetailsScreen({ route }) {
 
   <Text style={globalStyles.detailLabel}>Faculdade</Text>
   <Text style={globalStyles.detailValue}>{user.faculdade}</Text>
+  
+  <Text style={globalStyles.detailLabel}>Período</Text>
+  <Text style={globalStyles.detailValue}>{user.periodo}º</Text>
 
   <Text style={globalStyles.detailLabel}>Projeto</Text>
   <Text style={globalStyles.detailValue}>{user.projeto}</Text>
 
-  <Text style={globalStyles.detailLabel}>Período</Text>
-  <Text style={globalStyles.detailValue}>{user.periodo}º</Text>
+  <Text style={globalStyles.detailLabel}>Descrição do Projeto</Text>
+  <Text style={globalStyles.detailValue}>{user.descricao}</Text>
+
 
   {/* Não exiba senha em produção! */}
 </View>

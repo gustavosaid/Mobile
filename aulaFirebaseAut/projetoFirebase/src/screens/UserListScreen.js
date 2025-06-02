@@ -19,6 +19,7 @@ export default function UserListScreen({ navigation }) {
       const data = await fetchUsers();
       setUsers(data);
     })();
+
   }, []);
 
   const handleDelete = async (id) => {

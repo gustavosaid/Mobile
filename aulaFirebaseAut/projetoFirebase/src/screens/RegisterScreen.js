@@ -5,7 +5,9 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
-  Alert
+  Alert,
+  KeyboardAvoidingView,
+  ScrollView,
 } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import auth from '../services/credenciaisFirebaseAuth';
@@ -15,9 +17,10 @@ import globalStyles from '../styles/globalStyles';
 export default function RegisterScreen({ navigation }) {
   const [form, setForm] = useState({
     nome: '',
-    curso:'',
+    curso: '',
     faculdade: '',
     projeto: '',
+    descricao: '',
     periodo: '',
     email: '',
     senha: '',
@@ -46,24 +49,24 @@ export default function RegisterScreen({ navigation }) {
   };
 
   return (
-    <View style={globalStyles.container}>
-      <Text style={globalStyles.title}>Cadastro</Text>
-      {['nome','curso','faculdade','projeto','periodo','email','senha'].map((field) => (
-        <TextInput
-          key={field}
-          placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-          style={globalStyles.input}
-          secureTextEntry={field === 'senha'}
-          value={form[field]}
-          onChangeText={(v) => handleChange(field, v)}
-        />
-      ))}
-      <TouchableOpacity
-        style={globalStyles.button}
-        onPress={handleSubmit}
-      >
-        <Text style={globalStyles.buttonText}>Cadastrar</Text>
-      </TouchableOpacity>
-    </View>
+      <ScrollView contentContainerStyle={globalStyles.container} keyboardShouldPersistTaps="handled">
+        <Text style={globalStyles.title}>Cadastro</Text>
+        {['nome', 'curso', 'faculdade', 'projeto', 'descricao', 'periodo', 'email', 'senha'].map((field) => (
+          <TextInput
+            key={field}
+            placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+            style={globalStyles.input}
+            secureTextEntry={field === 'senha'}
+            value={form[field]}
+            onChangeText={(v) => handleChange(field, v)}
+          />
+        ))}
+        <TouchableOpacity
+          style={globalStyles.button}
+          onPress={handleSubmit}
+        >
+          <Text style={globalStyles.buttonText}>Cadastrar</Text>
+        </TouchableOpacity>
+      </ScrollView>
   );
 }
