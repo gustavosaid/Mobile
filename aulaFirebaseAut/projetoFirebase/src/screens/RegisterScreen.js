@@ -15,9 +15,12 @@ import globalStyles from '../styles/globalStyles';
 export default function RegisterScreen({ navigation }) {
   const [form, setForm] = useState({
     nome: '',
+    curso:'',
+    faculdade: '',
+    projeto: '',
     periodo: '',
     email: '',
-    senha: ''
+    senha: '',
   });
   const { addUser } = useFirebase();
 
@@ -45,7 +48,7 @@ export default function RegisterScreen({ navigation }) {
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.title}>Cadastro</Text>
-      {['nome', 'periodo', 'email', 'senha'].map((field) => (
+      {['nome','curso','faculdade','projeto','periodo','email','senha'].map((field) => (
         <TextInput
           key={field}
           placeholder={field.charAt(0).toUpperCase() + field.slice(1)}

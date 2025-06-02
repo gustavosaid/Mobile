@@ -18,6 +18,7 @@ export default function LoginScreen({ navigation }) {
       Alert.alert('Erro', 'Falha no login');
       console.error(error);
     }
+    
   };
 
   return (

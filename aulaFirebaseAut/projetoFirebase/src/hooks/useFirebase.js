@@ -31,4 +31,5 @@ const useFirebase = () => {
   return { addUser, fetchUsers, deleteUser, getUserById, loading };
 };
 
+
 export default useFirebase;

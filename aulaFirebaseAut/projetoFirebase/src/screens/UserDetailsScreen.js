@@ -30,11 +30,27 @@ export default function UserDetailsScreen({ route }) {
 
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.title}>Detalhes</Text>
-      <Text>Nome: {user.nome}</Text>
-      <Text>Período: {user.periodo}</Text>
-      <Text>Email: {user.email}</Text>
-      {/* Não exiba senha em produção! */}
-    </View>
+  <Text style={globalStyles.title}>Detalhes</Text>
+
+  <Text style={globalStyles.detailLabel}>Nome</Text>
+  <Text style={globalStyles.detailValue}>{user.nome}</Text>
+
+  <Text style={globalStyles.detailLabel}>Email</Text>
+  <Text style={globalStyles.detailValue}>{user.email}</Text>
+
+  <Text style={globalStyles.detailLabel}>Curso</Text>
+  <Text style={globalStyles.detailValue}>{user.curso}</Text>
+
+  <Text style={globalStyles.detailLabel}>Faculdade</Text>
+  <Text style={globalStyles.detailValue}>{user.faculdade}</Text>
+
+  <Text style={globalStyles.detailLabel}>Projeto</Text>
+  <Text style={globalStyles.detailValue}>{user.projeto}</Text>
+
+  <Text style={globalStyles.detailLabel}>Período</Text>
+  <Text style={globalStyles.detailValue}>{user.periodo}º</Text>
+
+  {/* Não exiba senha em produção! */}
+</View>
   );
 }
