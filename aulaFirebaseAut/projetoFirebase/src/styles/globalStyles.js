@@ -6,6 +6,9 @@ const globalStyles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#F4F6F8', // Fundo mais suave
   },
+  scrollContainer: {
+    flexGrow: 1,
+  },
   title: {
     fontSize: 24,
     fontWeight: 'bold',

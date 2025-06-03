@@ -49,9 +49,21 @@ export default function RegisterScreen({ navigation }) {
   };
 
   return (
-      <ScrollView contentContainerStyle={globalStyles.container} keyboardShouldPersistTaps="handled">
-        <Text style={globalStyles.title}>Cadastro</Text>
-        {['nome', 'curso', 'faculdade', 'projeto', 'descricao', 'periodo', 'email', 'senha'].map((field) => (
+    <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={globalStyles.scrollContainer} keyboardShouldPersistTaps="handled">
+
+        <View style={globalStyles.inner}>
+          <Text style={globalStyles.title}>Cadastro</Text>
+
+        {['nome',
+         'curso',
+          'faculdade',
+          'projeto',
+          'descricao',
+          'periodo',
+          'email', 
+          'senha'].map((field) => (
+            
           <TextInput
             key={field}
             placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
@@ -61,12 +73,13 @@ export default function RegisterScreen({ navigation }) {
             onChangeText={(v) => handleChange(field, v)}
           />
         ))}
-        <TouchableOpacity
-          style={globalStyles.button}
-          onPress={handleSubmit}
-        >
+
+        <TouchableOpacity style={globalStyles.button} onPress={handleSubmit}>
           <Text style={globalStyles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
-      </ScrollView>
+      </View>
+    </ScrollView>
+    </KeyboardAvoidingView >
   );
 }
+
