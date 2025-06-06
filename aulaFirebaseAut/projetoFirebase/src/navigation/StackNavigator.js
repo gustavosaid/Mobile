@@ -6,6 +6,8 @@ import RegisterScreen from '../screens/RegisterScreen';
 import UserListScreen from '../screens/UserListScreen';
 import UserDetailsScreen from '../screens/UserDetailsScreen';
 
+
+
 const Stack = createStackNavigator();
 
 const StackNavigator = () => (
@@ -16,6 +18,7 @@ const StackNavigator = () => (
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="UserList" component={UserListScreen} />
         <Stack.Screen name="UserDetails" component={UserDetailsScreen} />
+       
 
     </Stack.Navigator>
 );

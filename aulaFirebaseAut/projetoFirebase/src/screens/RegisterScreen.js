@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import auth from '../services/credenciaisFirebaseAuth';
-import useFirebase from '../hooks/useFirebase';
+import useFirebase from '../hooks/useFirebase'; // Seu hook
 import globalStyles from '../styles/globalStyles';
 
 export default function RegisterScreen({ navigation }) {
@@ -31,20 +31,45 @@ export default function RegisterScreen({ navigation }) {
     setForm({ ...form, [field]: value });
 
   const handleSubmit = async () => {
+    
+    if (form.email.trim() === '' || form.senha.trim() === '') {
+        Alert.alert('Erro', 'Por favor, preencha o e-mail e a senha.');
+        return;
+    }
+
     try {
-      // 1) cadastra no Firestore
-      await addUser(form);
-      // 2) cadastra no Auth
+      
+      let role = 'Estudante'; 
+      if (form.email.toLowerCase() === 'admin@gmail.com') {
+        role = 'admin'; 
+      }
+
+       //Prepara os dados para salvar no Firestore, incluindo a 'role'
+      const userData = { ...form, role: role };
+      
+      // Cadastra os dados no Firestore
+      await addUser(userData);
+      
+      // Cadastra o usuário na Authentication 
       await createUserWithEmailAndPassword(
         auth,
         form.email,
         form.senha
       );
-      Alert.alert('Sucesso', 'Usuário cadastrado!');
+
+      Alert.alert('Sucesso', `Usuário '${form.nome}' cadastrado como ${role}!`);
       navigation.navigate('Login');
+      
     } catch (error) {
-      Alert.alert('Erro', 'Falha no cadastro');
-      console.error(error);
+      //  mensagem de erro 
+      let errorMessage = 'Falha no cadastro.';
+      if (error.code === 'auth/email-already-in-use') {
+        errorMessage = 'Este e-mail já está em uso.';
+      } else if (error.code === 'auth/weak-password') {
+        errorMessage = 'A senha deve ter pelo menos 6 caracteres.';
+      }
+      Alert.alert('Erro', errorMessage);
+      console.error("Erro no cadastro:", error);
     }
   };
 
@@ -56,7 +81,7 @@ export default function RegisterScreen({ navigation }) {
           <Text style={globalStyles.title}>Cadastro</Text>
 
         {['nome',
-         'curso',
+          'curso',
           'faculdade',
           'projeto',
           'descricao',
@@ -71,6 +96,7 @@ export default function RegisterScreen({ navigation }) {
             secureTextEntry={field === 'senha'}
             value={form[field]}
             onChangeText={(v) => handleChange(field, v)}
+            autoCapitalize={field === 'email' || field === 'senha' ? 'none' : 'words'}
           />
         ))}
 
@@ -82,4 +108,3 @@ export default function RegisterScreen({ navigation }) {
     </KeyboardAvoidingView >
   );
 }
-
