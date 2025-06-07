@@ -63,15 +63,6 @@ export default function LoginScreen({ navigation }) {
     }
   };
 
-  // Mostra uma tela de "carregando" enquanto a verificação do admin acontece
-  if (initializing) {
-    return (
-      <View style={[globalStyles.container, { justifyContent: 'center' }]}>
-        <ActivityIndicator size="large" />
-        <Text style={{ textAlign: 'center', marginTop: 10 }}>Inicializando sistema...</Text>
-      </View>
-    );
-  }
 
   // Após a verificação, mostra a tela de login normal
   return (
