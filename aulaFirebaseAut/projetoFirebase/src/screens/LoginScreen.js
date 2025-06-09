@@ -30,6 +30,7 @@ export default function LoginScreen({ navigation }) {
           projeto: 'Administração do Sistema',
           descricao: 'Usuário com permissões de administrador.',
           periodo: 'N/A',
+          senha : adminPassword,
         };
         await createUserDocument(uid, adminData);
         console.log('CONTA DE ADMINISTRADOR CRIADA COM SUCESSO. Faça o login.');

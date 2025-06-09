@@ -3,12 +3,12 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyClqY1Ukgg0Qa0zK0Oh03adB4CEOyqj8_Q",
-  authDomain: "prova01-aluguel-carros-c7595.firebaseapp.com",
-  projectId: "prova01-aluguel-carros-c7595",
-  storageBucket: "prova01-aluguel-carros-c7595.firebasestorage.app",
-  messagingSenderId: "201098923784",
-  appId: "1:201098923784:web:7cdceae5d83d8cf2ed26bd"
+  apiKey: "AIzaSyD-BlSOC9_QQY39ryo-ShS5aqD0qs4VoBg",
+  authDomain: "aps-gustavoribeiro.firebaseapp.com",
+  projectId: "aps-gustavoribeiro",
+  storageBucket: "aps-gustavoribeiro.firebasestorage.app",
+  messagingSenderId: "281994141967",
+  appId: "1:281994141967:web:3f1cbeb936e42deeee9e7a"
 };
 
 
